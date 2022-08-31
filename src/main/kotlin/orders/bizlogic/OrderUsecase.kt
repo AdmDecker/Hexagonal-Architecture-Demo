@@ -12,8 +12,8 @@ class OrderUsecase {
     }
 
     private fun calculateOrangeCost(order: OrderRequest) =
-        costOfOranges * BigDecimal(order.oranges)
+        costOfOranges * BigDecimal(order.oranges - order.oranges / 3)
 
     private fun calculateAppleCost(order: OrderRequest) =
-        costOfApples * BigDecimal(order.apples)
+        costOfApples * (BigDecimal(order.apples / 2 + order.apples % 2))
 }

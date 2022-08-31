@@ -27,6 +27,7 @@ dependencies {
 
     runtimeOnly("com.fasterxml.jackson.module:jackson-module-kotlin")
     testImplementation("io.strikt:strikt-core:0.34.0")
+    testCompileOnly("org.junit.jupiter:junit-jupiter-params:5.8.1")
 
 }
 
