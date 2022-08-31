@@ -1,13 +1,17 @@
 package orders.bizlogic
-
+import jakarta.inject.Inject
+import jakarta.inject.Singleton
 import java.math.BigDecimal
+import java.util.*
 
-class OrderUsecase {
+@Singleton
+class PlaceOrderUsecase(@Inject private val orderGateway: OrderGateway) {
     private val costOfApples = BigDecimal("0.60")
     private val costOfOranges = BigDecimal("0.25")
 
     fun execute(order: OrderRequest): OrderResult {
         val orderTotal = calculateAppleCost(order) + calculateOrangeCost(order)
+        orderGateway.persistOrder(PersistableOrder(UUID.randomUUID(), order.apples, order.oranges, orderTotal))
         return OrderResult(orderTotal, costOfApples, costOfOranges)
     }
 
