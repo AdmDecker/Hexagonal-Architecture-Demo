@@ -7,7 +7,7 @@ plugins {
 }
 
 version = "0.1"
-group = "orders"
+group = "OrdersService"
 
 val kotlinVersion=project.properties.get("kotlinVersion")
 repositories {
@@ -33,7 +33,7 @@ dependencies {
 
 
 application {
-    mainClass.set("orders.ApplicationKt")
+    mainClass.set("main.ApplicationKt")
 }
 java {
     sourceCompatibility = JavaVersion.toVersion("11")
@@ -57,7 +57,7 @@ micronaut {
     testRuntime("junit5")
     processing {
         incremental(true)
-        annotations("orders.*")
+        annotations("OrdersService.*")
     }
 }
 

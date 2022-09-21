@@ -1,3 +1,3 @@
 
-rootProject.name="hit"
+rootProject.name="OrdersService"
 
